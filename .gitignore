@@ -28,3 +28,13 @@ override.tf.json
 # Include tfplan files to ignore the plan output of command: terraform plan -out=tfplan
 # example: *tfplan*
 *.pem
+
+# folder with my credentials
+05-A-AWS-Bucket/
+
+#file with my credentials
+05-A-AWS-Bucket-Variable/terraform.tfvars
+
+# Tipo de arquivo
+*.lock.hcl
+*.backup
