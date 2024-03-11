@@ -1,43 +1,44 @@
-# Variables
+# Variáveis
 
-In this lab we learn about Variables.
-
-## Instructions
-
-1. Change directory into the `03-Variables` directory:
-
+## Boas práticas:
+A variável pode ser definida sem inserir o tipo e descrição, mas por boas práticas usaremos a definição completa.
 ```bash
-cd 03-Variables
+variable "image_name" {
+  type        = string
+  description = "The name of the Docker image"
+  default     = "nginx"
+}
 ```
-
-2. Initialize and Terraform Apply
-
+Se não tiver o valor defualt:
 ```bash
-terraform init
-terraform apply --auto-approve
+variable "external_port" {
+  type        = number
+  description = "The external port number for the container"
+}
 ```
+O terminal irá pedir para você inserir os valores que estão faltando e são necessário para o sistema:
 
-You will get prompted for the External and Internal ports.
-Use 8080 for the external port and 80 for the internal port.
+![alt text](image.png)
 
-3. Examine the `main.tf` file
-
-Notice how we declare variables using the `variables` block and reference variables using var.<variable_name>.
-
-This syntax: `"${var.image_name}:${var.image_tag}"` is called string interpolation as you can include variables inside strings.
-
-4. Supply the variables via the CLI
-
-Now rerun `terraform apply` but this time use the following command:
-
+Ou podemos utilizar o teminal direto para fazer o input dos valores necessário:
 ```bash
 terraform apply -var 'external_port=8080' -var 'internal_port=80'
 ```
 
-5. Now go ahead and destroy the environment using the `-destroy` flag which is another way of destroying the environment that is often used in CI/CD pipelines.
+
+
+
+Para facilitar a utilização das variáveis podemos utilizar a "Interpolação de strings" (string interpolation)
+```bash
+resource "docker_image" "nginx_image" {
+  name = "${var.image_name}:${var.image_tag}"
+}
+```
+
+1. Now go ahead and destroy the environment using the `-destroy` flag which is another way of destroying the environment that is often used in CI/CD pipelines.
 
 ```bash
 terraform apply -destroy -var 'external_port=8080' -var 'internal_port=80'
 ```
 
-> Congratulations you have finished this lab!
+
