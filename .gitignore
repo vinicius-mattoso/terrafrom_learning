@@ -34,8 +34,7 @@ override.tf.json
 
 #file with my credentials
 05-A-AWS-Bucket-Variable/terraform.tfvars
-05-A-AWS-Bucket-Variable-List/terraform.tfvars
-05-AWS-Bucket-Variable-List\terraform.tfvars
+05-AWS-Bucket-Variable-List/terraform.tfvars
 # Tipo de arquivo
 *.lock.hcl
 *.backup
