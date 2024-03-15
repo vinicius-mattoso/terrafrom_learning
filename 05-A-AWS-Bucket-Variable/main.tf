@@ -14,7 +14,17 @@ provider "aws" {
     secret_key = "${var.user_secret_key}"
 }
 
-resource "aws_s3_bucket" "bucket-from-terraform" {
-  bucket = "meu-bucket-nome-terraform-new-test"
+resource "aws_s3_bucket" "bucket-save-data-terraform" {
+  bucket = "bucket-save-data-from-terraform"
+
+}
+
+resource "aws_s3_bucket" "bucket-save-model-terraform" {
+  bucket = "bucket-save-model-from-terraform"
+
+}
+
+resource "aws_s3_bucket" "bucket-save-image-terraform" {
+  bucket = "bucket-save-image-from-terraform"
 
 }
